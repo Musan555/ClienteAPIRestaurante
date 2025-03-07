@@ -1,0 +1,80 @@
+<!doctype html>
+<html class="no-js" lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestión de Reservas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+  <meta name="description" content="">
+  <script src="js/reservas.js" defer></script>
+</head>
+
+<body class="container mt-4">
+
+<h2 class="mb-4">Gestión de Reservas</h2>
+
+<!-- Botón para actualizar reservas -->
+<button class="btn btn-primary mb-3" id="cargarReservasBtn">Actualizar reservas</button>
+<!-- Botón para logout -->
+<button class="btn btn-danger" id="logoutBtn">Cerrar sesión</button>
+
+<!-- Tabla para mostrar las reservas -->
+<table class="table table-bordered">
+  <thead class="table-dark">
+  <tr>
+    <th>Cliente</th>
+    <th>Email</th>
+    <th>Teléfono</th>
+    <th>Fecha</th>
+    <th>Hora</th>
+    <th>Personas</th>
+    <th>Mesa</th>
+    <th>Descripción</th>
+    <th>Acciones</th>
+  </tr>
+  </thead>
+  <tbody id="tableBody"></tbody>
+</table>
+
+<!-- Botón para abrir el modal de añadir reserva -->
+<button class="btn btn-primary" id="openDialogAddReservaBtn">Añadir reserva</button>
+
+<!-- Modal para crear/editar reservas -->
+<dialog class="container mb-3 mt-3" style="border: 1px solid black" id="reservaDialog">
+  <h2 id="dialogTitle">Nueva reserva</h2>
+  <div class="mb-3">
+    <input class="form-control" type="text" id="nombreCliente" placeholder="Nombre del cliente" required>
+  </div>
+  <div class="mb-3">
+    <input class="form-control" type="email" id="emailCliente" placeholder="Email del cliente" required>
+  </div>
+  <div class="mb-3">
+    <input class="form-control" type="tel" id="telefonoCliente" placeholder="Teléfono del cliente" required pattern="\d{9}" title="El teléfono debe tener 9 dígitos">
+  </div>
+  <div class="mb-3">
+    <input class="form-control" type="date" id="fechaReserva" placeholder="Fecha de reserva" required>
+  </div>
+  <div class="mb-3">
+    <input class="form-control" type="time" id="horaReserva" placeholder="Hora de reserva" required>
+  </div>
+  <div class="mb-3">
+    <input class="form-control" type="number" id="numeroPersonas" placeholder="Número de personas" required min="1">
+  </div>
+  <div class="mb-3">
+    <select class="form-control" id="numeroMesa" required>
+      <option value="">Seleccione una mesa</option>  <!-- Opción vacía al inicio -->
+    </select>
+  </div>
+
+  <!-- Botones para guardar o cancelar -->
+  <button class="btn btn-primary mb-3" id="guardarReservaBtn">Guardar</button>
+  <button class="btn btn-danger mb-3" id="cancelReservaBtn">Cerrar</button>
+</dialog>
+
+</body>
+</html>
+
+
